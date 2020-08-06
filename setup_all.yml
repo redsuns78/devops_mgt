@@ -1,5 +1,6 @@
 ---
 - hosts:  all
+  gather_facts: 'true' 
   tasks:
     - name: gather facts from apps
       setup:
