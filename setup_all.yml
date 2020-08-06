@@ -1,8 +1,5 @@
 ---
 - hosts:  all
-  become: yes
-  become_user: root
-  become_method: sudo
   tasks:
     - name: gather facts from apps
       setup:
