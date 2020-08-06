@@ -2,12 +2,11 @@
 - hosts:  all
   gather_facts: 'true' 
   tasks:
-    - name: ansible create local directory example
-      local_action:
-       module: file
-       path: /tmp/CMDB
-       state: directory 
     - name: gather facts from apps
       setup:
       register: find_output
-    - local_action: copy content={{ find_output }} dest=/tmp/CMDB/{{ inventory_hostname }}
+    - name: copy
+      copy
+       src: content={{ find_output }}
+       dest: /tmp/CMDB/{{ inventory_hostname }}
+      delegate_to: localhost
