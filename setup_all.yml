@@ -5,4 +5,4 @@
     - name: gather facts from apps
       setup:
       register: find_output
-    - local_action: copy content={{ find_output }} dest=./{{ inventory_hostname }}
+    - local_action: copy content={{ find_output }} dest=/var/lib/awx/projects/CMDB/{{ inventory_hostname }}
